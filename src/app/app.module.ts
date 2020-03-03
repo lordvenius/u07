@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { HeaderComponent } from './components/layout/header/header.component';
-import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { SearchMovieComponent } from './components/search-movie/search-movie.component';
 import { AboutComponent } from './components/pages/about/about.component';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { AboutComponent } from './components/pages/about/about.component';
     MoviesComponent,
     MovieItemComponent,
     HeaderComponent,
-    AddMovieComponent,
+    SearchMovieComponent,
     AboutComponent
   ],
   imports: [

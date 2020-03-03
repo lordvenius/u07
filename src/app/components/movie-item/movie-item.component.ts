@@ -21,18 +21,18 @@ export class MovieItemComponent implements OnInit {
   setClasses() {
     let classes = {
       movie: true,
-      "is-complete": this.movie.completed
+      //"is-complete": this.movie.completed
     }
     return classes;
   }
-
-  onToggle(movie) {
-    movie.completed = !movie.completed;
-    this.movieService.toggleCompleted(movie).subscribe(movie => console.log(movie));
-  }
-
-  onDelete(movie) {
-    this.deleteMovie.emit(movie);
-  }
-
+  /*
+    onToggle(movie) {
+      movie.completed = !movie.completed;
+      this.movieService.toggleCompleted(movie).subscribe(movie => console.log(movie));
+    }
+  
+    onDelete(movie) {
+      this.deleteMovie.emit(movie);
+    }
+  */
 }

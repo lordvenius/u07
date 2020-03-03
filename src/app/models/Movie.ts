@@ -1,6 +1,9 @@
 export class Movie {
-    id: number;
-    title: string;
-    completed: boolean;
+    //total_results: number;
+    //total_pages: number;
+    results: any;
+
+    //completed?: boolean;
+    //id?: number;
 
 }

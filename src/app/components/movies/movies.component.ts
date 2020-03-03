@@ -13,23 +13,36 @@ export class MoviesComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovies().subscribe(movies => {
-      this.movies = movies;
+    //this.movieService.getMovies().subscribe(response => {
+    //this.movies = response.results;
+    //});
+  }
+
+  movieTest(query) {
+    console.log("då")
+
+    this.movieService.getMoviesByQuery(query).subscribe(response => {
+      console.log(response.results);
+      this.movies = response.results;
     });
-    console.log(this.movies);
   }
 
-  deleteMovie(movie: Movie) {
-    // ui
-    this.movies = this.movies.filter(t => t.id !== movie.id);
-    // server
-    this.movieService.deleteMovie(movie).subscribe();
-  }
 
-  addMovie(movie: Movie) {
-    this.movieService.addMovie(movie).subscribe(movie => {
-      this.movies.push(movie);
-    })
-  }
 
+
+  /*
+    deleteMovie(movie: Movie) {
+      // ui
+      this.movies = this.movies.filter(t => t.id !== movie.id);
+      // server
+      this.movieService.deleteMovie(movie).subscribe();
+    }
+  
+    searchMovie(movie: Movie) {
+      this.movieService.searchMovie(movie).subscribe(movie => {
+        this.movies.push(movie);
+      })
+    }
+  */
 }
+

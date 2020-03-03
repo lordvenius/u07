@@ -14,28 +14,41 @@ const httpOptions = {
 })
 export class MovieService {
 
-  moviesUrl: string = "https://jsonplaceholder.typicode.com/todos";
-  moviesLimit = "?_limit=5"
+  moviesBaseUrl = 'https://api.themoviedb.org/3/search/movie';
+  apiKey = 'cd16db57cbed2e6207433158cade660f';
+
+  moviesUrl: string = `${this.moviesBaseUrl}?api_key=${this.apiKey}`;
+  // &query=Jack+Reacher
 
   constructor(private http: HttpClient) { }
 
-  getMovies(): Observable<Movie[]> {
+  getMovies(): Observable<Movie> {
     return this.
-      http.get<Movie[]>(`${this.moviesUrl}${this.moviesLimit}`);
+      http.get<Movie>(`${this.moviesUrl}&query=Jack+Reacher`);
   }
 
-  deleteMovie(movie: Movie): Observable<Movie> {
-    const url = `${this.moviesUrl}/${movie.id}`;
-    return this.http.delete<Movie>(url, httpOptions);
+  getMoviesByQuery(query): Observable<Movie> {
+    return this.http.get<Movie>(`${this.moviesUrl}&query=${query}`);
   }
 
-  addMovie(movie: Movie): Observable<Movie> {
-    return this.http.post<Movie>(this.moviesUrl, movie, httpOptions)
+  movieTest(query) {
+    console.log("hejhej");
   }
 
-  toggleCompleted(movie: Movie): Observable<any> {
-    const url = `${this.moviesUrl}/${movie.id}`
-    return this.http.put(url, movie, httpOptions);
-
-  }
+  /*
+    deleteMovie(movie: Movie): Observable<Movie> {
+      const url = `${this.moviesUrl}/${movie.id}`;
+      return this.http.delete<Movie>(url, httpOptions);
+    }
+  
+    searchMovie(movie: Movie): Observable<Movie> {
+      return this.http.post<Movie>(this.moviesUrl, movie, httpOptions)
+    }
+  
+    toggleCompleted(movie: Movie): Observable<any> {
+      const url = `${this.moviesUrl}/${movie.id}`
+      return this.http.put(url, movie, httpOptions);
+  
+    }
+  */
 }
