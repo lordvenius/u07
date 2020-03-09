@@ -18,11 +18,18 @@ export class MoviesComponent implements OnInit {
     //});
   }
 
-  movieTest(query) {
-    console.log("då")
-
+  getMoviesByQuery(query) {
     this.movieService.getMoviesByQuery(query).subscribe(response => {
       console.log(response.results);
+      this.movies = response.results;
+    });
+  }
+
+  getMoviesByPersonQuery(query) {
+    this.movieService.getMoviesByPersonQuery(query).subscribe(response => {
+
+      console.log(response.results);
+
       this.movies = response.results;
     });
   }

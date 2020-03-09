@@ -16,6 +16,7 @@ export class SearchMovieComponent implements OnInit {
   movies: Movie[];
 
   title: string;
+  person: string;
 
 
   constructor(private movieService: MovieService, private moviesComponent: MoviesComponent) { }
@@ -25,13 +26,17 @@ export class SearchMovieComponent implements OnInit {
 
   onSubmit() {
 
-    this.moviesComponent.movieTest(this.title);
+    this.moviesComponent.getMoviesByQuery(this.title);
     /*
         this.movieService.getMoviesByQuery(this.title).subscribe(response => {
           console.log(response.results);
           this.movies = response.results;
         });
     */
+  }
+
+  onSubmit2() {
+    this.moviesComponent.getMoviesByPersonQuery(this.person);
   }
 
 }

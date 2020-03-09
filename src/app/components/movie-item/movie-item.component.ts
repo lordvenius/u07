@@ -8,7 +8,17 @@ import { Movie } from 'src/app/models/Movie';
   templateUrl: './movie-item.component.html',
   styleUrls: ['./movie-item.component.css']
 })
+
+
 export class MovieItemComponent implements OnInit {
+  imageUrl: string = "https://image.tmdb.org/t/p/original";
+
+  public display = true;
+
+  public movieInfoDisplay = {
+    "hide-info": this.display
+
+  }
 
   @Input() movie: Movie;
   @Output() deleteMovie: EventEmitter<Movie> = new EventEmitter();
@@ -16,6 +26,7 @@ export class MovieItemComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+
   }
 
   setClasses() {
@@ -25,6 +36,23 @@ export class MovieItemComponent implements OnInit {
     }
     return classes;
   }
+
+  public showInfo() {
+    if (this.display == true) {
+      this.movieInfoDisplay["hide-info"] = false;
+      this.display = false;
+    } else if (this.display == false) {
+      this.movieInfoDisplay["hide-info"] = true;
+      this.display = true;
+    } else {
+      return
+    }
+
+  }
+
+
+
+
   /*
     onToggle(movie) {
       movie.completed = !movie.completed;

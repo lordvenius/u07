@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+}
+
+.sort-btn {
+    background-color: grey;
+    height: 2em;
+    width: 55px;
+}
+
+.sort-btn:hover {
+    background-color: rgb(189, 189, 189);
+}
+
+.sort-btn:active {
+    outline: none; 
+}
+
+button:focus { 
+    outline:none; 
+}
+
+.btn-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.movie-wrapper {
+    width: 100%;
+}

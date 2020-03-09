@@ -1,13 +1,28 @@
-<div [ngClass]="setClasses()">
+<div [ngClass]="setClasses()" class="wrapper">
 
-    <p>
-        <input (change)="onToggle(movie)" type="checkbox" />
 
-        <button (click)="onDelete(movie)" class="del">x</button>
-    </p>
+    <div class="movieInfo">
 
-    <p>Title: {{ movie.original_title }}</p>
-    <p>Id: {{ movie.id }}</p>
+        <button (click)="showInfo()">{{movie.title}}</button>
+
+        <div [ngClass]="movieInfoDisplay">
+            <p>Release date: {{ movie.release_date }}</p>
+            <p>Vote: {{ movie.vote_average }}</p>
+            <p>Vote count: {{ movie.vote_count }}</p>
+            <p>Popularity: {{ movie.popularity }}</p>
+
+
+        </div>
+    </div>
+
+    <div class="img-and-btn">
+        <img src="{{imageUrl}}{{movie.poster_path}}" alt="" class="poster">
+        <button>Add to watch list</button>
+    </div>
+
+
+
+
 
 
 

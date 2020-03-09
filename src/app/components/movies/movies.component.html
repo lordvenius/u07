@@ -1,3 +1,3 @@
-<app-search-movie (searchMovie)="searchMovie($event)"></app-search-movie>
-<app-movie-item *ngFor="let movie of movies" [movie]="movie" (deleteMovie)="deleteMovie($event)">
+<app-search-movie (getMoviesByQuery)="getMoviesByQuery($event)"></app-search-movie>
+<app-movie-item *ngFor="let movie of movies" [movie]="movie">
 </app-movie-item>

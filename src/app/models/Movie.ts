@@ -1,9 +1,14 @@
 export class Movie {
-    //total_results: number;
-    //total_pages: number;
-    results: any;
 
-    //completed?: boolean;
-    //id?: number;
+    results: any;
+    title: string;
+    release_date: string;
+    vote_average: number;
+    vote_count: number;
+    popularity: number;
+    poster_path: string;
+
+
+
 
 }

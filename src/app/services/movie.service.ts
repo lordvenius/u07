@@ -13,11 +13,15 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MovieService {
-
-  moviesBaseUrl = 'https://api.themoviedb.org/3/search/movie';
+  sortMoviesBaseUrl = "https://api.themoviedb.org/3/movie"
+  searchMoviesBaseUrl = 'https://api.themoviedb.org/3/search/movie';
+  searchByPersonUrl = "https://api.themoviedb.org/3/search/person";
   apiKey = 'cd16db57cbed2e6207433158cade660f';
+  topRated = "/top_rated?";
+  bottomRated = "";
+  popular = "/popular?";
 
-  moviesUrl: string = `${this.moviesBaseUrl}?api_key=${this.apiKey}`;
+  moviesUrl: string = `${this.searchMoviesBaseUrl}?api_key=${this.apiKey}`;
   // &query=Jack+Reacher
 
   constructor(private http: HttpClient) { }
@@ -31,8 +35,26 @@ export class MovieService {
     return this.http.get<Movie>(`${this.moviesUrl}&query=${query}`);
   }
 
+  getMoviesByPersonQuery(query): Observable<Movie> {
+    return this.http.get<Movie>(`${this.searchByPersonUrl}?api_key=${this.apiKey}&language=en-US&query=${query}&page=1&include_adult=false`);
+  }
+
+  //https://api.themoviedb.org/3/search/person?api_key=cd16db57cbed2e6207433158cade660f&language=en-US&query=jim&page=1&include_adult=false
+
   movieTest(query) {
     console.log("hejhej");
+  }
+
+  getBestMovies(): Observable<Movie> {
+    return this.http.get<Movie>(`${this.sortMoviesBaseUrl}${this.topRated}api_key=${this.apiKey}&language=en-US&page=1`);
+  }
+
+  getWorstMovies(): Observable<Movie> {
+    return this.http.get<Movie>(`${this.sortMoviesBaseUrl}${this.bottomRated}api_key=${this.apiKey}&language=en-US&page=1`);
+  }
+
+  getPopularMovies(): Observable<Movie> {
+    return this.http.get<Movie>(`${this.sortMoviesBaseUrl}${this.popular}api_key=${this.apiKey}&language=en-US&page=1`);
   }
 
   /*
@@ -52,3 +74,4 @@ export class MovieService {
     }
   */
 }
+

@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <h2>Top 100 Movies</h2>
+
+    <p>sort by:</p>
+
+    <div class="btn-wrapper">
+
+        <form (ngSubmit)="getBestMovies()" class="form">
+            <button type="submit" class="sort-btn">Best</button>
+        </form>
+        <form (ngSubmit)="getWorstMovies()" class="form">
+            <button type="submit" class="sort-btn">Worst</button>
+        </form>
+        <form (ngSubmit)="getPopularMovies()" class="form">
+            <button type="submit" class="sort-btn">Popular</button>
+        </form>
+
+    </div>
+
+    <app-movie-item *ngFor="let movie of movies" [movie]="movie" class="movie-wrapper"></app-movie-item>
+
+</div>
