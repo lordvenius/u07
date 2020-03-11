@@ -81,15 +81,26 @@
 
   .actor-info {
       display: flex;
-      justify-content: space-evenly;
+      
       width:100%;
       
   }
 
   .actor-info img {
-      width: 15%;
+      width: 100px;
   }
 
   .actor-info button {
-      width: 15%;
+      width: 100px;
   }
+
+  .movie-wrapper {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .title-btn {
+    width: 300px;
+    height: 5em;
+    background-color: hotpink;
+}

@@ -3,7 +3,7 @@
 
     <div class="movieInfo">
 
-        <button (click)="showInfo()">{{movie.title}}</button>
+        <button (click)="showInfo()" class="title-btn">{{movie.title}}</button>
 
         <div [ngClass]="movieInfoDisplay">
             <p>Release date: {{ movie.release_date }}</p>

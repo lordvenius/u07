@@ -3,21 +3,42 @@
 
     <div class="movieInfo">
 
-        <button (click)="showInfo()">{{actor.name}}</button>
+        <button (click)="showInfo()" class="title-btn">{{actor.name}}</button>
 
         <div [ngClass]="movieInfoDisplay">
 
 
 
+
+
+
             <p>Popularity: {{actor.popularity}}</p>
             <p>known for:</p>
-            <div class="actor-info">
-                <div class="img-and-btn">
-                    <img src="{{imageUrl}}{{actor.known_for[0].poster_path}}" alt="">
-                    <button>Add movie</button>
-                </div>
-                <p class="movie.title">{{actor.known_for[0].title}}</p>
+            <div class="movie.wrapper">
+                <div class="actor-info">
+                    <div class="img-and-btn">
+                        <img src="{{imageUrl}}{{actor.known_for[0].poster_path}}" alt="">
+                        <button>Add movie</button>
+                    </div>
+                    <p class="movie.title">{{actor.known_for[0].title}}</p>
 
+                </div>
+                <div class="actor-info">
+                    <div class="img-and-btn">
+                        <img src="{{imageUrl}}{{actor.known_for[1].poster_path}}" alt="">
+                        <button>Add movie</button>
+                    </div>
+                    <p class="movie.title">{{actor.known_for[1].title}}</p>
+
+                </div>
+                <div class="actor-info">
+                    <div class="img-and-btn">
+                        <img src="{{imageUrl}}{{actor.known_for[2].poster_path}}" alt="">
+                        <button>Add movie</button>
+                    </div>
+                    <p class="movie.title">{{actor.known_for[2].title}}</p>
+
+                </div>
             </div>
 
 

@@ -22,10 +22,6 @@ export class Top100Component implements OnInit {
     });
   }
 
-  getWorstMovies() {
-
-  }
-
   getPopularMovies() {
     this.movieService.getPopularMovies().subscribe(response => {
 

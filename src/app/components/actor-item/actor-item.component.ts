@@ -1,6 +1,10 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ActorService } from "../../services/actor.service";
 import { Actor } from 'src/app/models/Actor';
+import { Movie } from "../../models/Movie";
+import { MovieService } from "../../services/movie.service";
+import { MoviesComponent } from "../movies/movies.component";
+import { MovieItemComponent } from "../movie-item/movie-item.component"
 
 
 @Component({
@@ -21,12 +25,16 @@ export class ActorItemComponent implements OnInit {
 
   @Input() actor: Actor;
 
-  constructor(private actorService: ActorService) { }
+  constructor(private actorService: ActorService, private movieService: MovieService) { }
 
 
 
   ngOnInit(): void {
   }
+
+
+
+
 
   setClasses() {
     let classes = {
@@ -40,6 +48,7 @@ export class ActorItemComponent implements OnInit {
     if (this.display == true) {
       this.movieInfoDisplay["hide-info"] = false;
       this.display = false;
+
     } else if (this.display == false) {
       this.movieInfoDisplay["hide-info"] = true;
       this.display = true;
@@ -48,5 +57,7 @@ export class ActorItemComponent implements OnInit {
     }
 
   }
+
+
 
 }
