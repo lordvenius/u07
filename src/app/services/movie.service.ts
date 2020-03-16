@@ -26,6 +26,14 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
+  getMovieCredits(query): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${query}/credits?api_key=${this.apiKey}`);
+  }
+
+  getMoviesByActorName(query): Observable<Movie> {
+    return this.http.get<Movie>(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_people=${query}`);
+  }
+
   getMovies(): Observable<Movie> {
     return this.
       http.get<Movie>(`${this.moviesUrl}&query=Jack+Reacher`);

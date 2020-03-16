@@ -7,9 +7,19 @@
 
         <div [ngClass]="movieInfoDisplay">
             <p>Release date: {{ movie.release_date }}</p>
+            <hr>
             <p>Vote: {{ movie.vote_average }}</p>
+            <hr>
             <p>Vote count: {{ movie.vote_count }}</p>
+            <hr>
             <p>Popularity: {{ movie.popularity }}</p>
+            <hr>
+            <p>Overview:</p>
+            <p>{{movie.overview}}</p>
+            <hr>
+            <p>Actors:</p>
+
+            <div *ngFor="let credit of credits">{{credit.name}} as {{credit.character}}</div>
 
 
         </div>

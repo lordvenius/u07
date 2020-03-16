@@ -7,13 +7,20 @@
 
         <div [ngClass]="movieInfoDisplay">
 
+            <button (click)="getMoviesByActorName(actor.id)" class="see-movies-btn">Movies with
+                {{actor.name}}</button>
+
 
 
 
 
 
             <p>Popularity: {{actor.popularity}}</p>
-            <p>known for:</p>
+            <app-movie-item *ngFor="let movie of movies" [movie]="movie" [ngClass]="actorMovieInfoDisplay">
+            </app-movie-item>
+
+
+            <!--
             <div class="movie.wrapper">
                 <div class="actor-info">
                     <div class="img-and-btn">
@@ -40,6 +47,7 @@
 
                 </div>
             </div>
+            -->
 
 
 

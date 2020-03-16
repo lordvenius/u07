@@ -12,7 +12,7 @@ import { Movie } from 'src/app/models/Movie';
 
 export class MovieItemComponent implements OnInit {
   imageUrl: string = "https://image.tmdb.org/t/p/original";
-
+  public credits: object;
   public display = true;
 
   public movieInfoDisplay = {
@@ -36,8 +36,19 @@ export class MovieItemComponent implements OnInit {
     }
     return classes;
   }
+  getCredits() {
+    this.movieService.getMovieCredits(this.movie.id).subscribe(response => {
+      this.credits = response.cast;
+      console.log(this.credits);
+    });
+
+  }
+
+
 
   public showInfo() {
+
+    this.getCredits();
     if (this.display == true) {
       this.movieInfoDisplay["hide-info"] = false;
       this.display = false;
@@ -48,7 +59,10 @@ export class MovieItemComponent implements OnInit {
       return
     }
 
+
   }
+
+
 
 
 

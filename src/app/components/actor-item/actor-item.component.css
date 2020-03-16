@@ -21,7 +21,7 @@
 }
 
 .poster {
-    height: 200px;
+    height: 25vw;
     float: right;
     
 }
@@ -100,7 +100,10 @@
   }
 
   .title-btn {
-    width: 300px;
+    width: 20vw;
     height: 5em;
     background-color: hotpink;
+}
+.see-movies-btn {
+    background-color: lightseagreen;
 }

@@ -7,6 +7,8 @@ export class Movie {
     vote_count: number;
     popularity: number;
     poster_path: string;
+    overview: string;
+    id: number;
 
 
 

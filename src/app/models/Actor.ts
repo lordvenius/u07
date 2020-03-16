@@ -6,6 +6,7 @@ export class Actor {
     popularity: any;
     profile_path: any;
     poster_path: string;
+    id: number;
 
 
 
